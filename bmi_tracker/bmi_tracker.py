@@ -29,14 +29,14 @@ class BMIApp(QWidget):
                                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                                 name TEXT,
                                 height REAL,
-                                weigth REAL,
+                                weight REAL,
                                 bmi REAL,
                                 category TEXT,
                                 message TEXT)''')
             conn.commit()
 
     # Calculates BMI and returns the category and message
-    def calculate_bmi(self, weight, height):
+    def calculate_bmi(self, height, weight):
         bmi = weight / (height ** 2)
         if bmi < 18.5:
             return round(bmi, 2), "Underweight", "Stay nourished and strong"
@@ -192,6 +192,7 @@ class BMIApp(QWidget):
         self.table.setColumnCount(7)
         self.table.setHorizontalHeaderLabels(["Name", "Height (m)", "Weight(kg)", "BMI", "Category", "Message", "ID"])
         self.table.setColumnHidden(6, True) # hide id column
+        self.table.setColumnWidth(5, 260)
         self.table.cellClicked.connect(self.select_student)
         v_layout.addWidget(self.table)
 

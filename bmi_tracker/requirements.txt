@@ -1,0 +1,10 @@
+# The project requires the following Python libraries:
+
+# - PyQt5
+# - SQLite3 (built-in with Python)
+
+# To install all dependencies, run:
+
+# ```bash
+# pip install -r requirements.txt
+# ```
